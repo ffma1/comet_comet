@@ -57,6 +57,8 @@ nyancat-technyancolor-left-12_32x51.bmp means that this sprite is:
 
 Game control:
   - q or esc: quite the game
+  - p: pause / resume
+  - r: restart after Game Over
 1st player:
   - up arrow: move forward
   - down arrow: move backward
@@ -78,7 +80,8 @@ protect the space and they don't like intruders...
 
 Hyperspace: up and down edges are connected, so do left and right ones. Fly to
 the left, you will appear on the right. Asteroids and enemies also know the
-secret of hyperspace...
+secret of hyperspace. The spaceship wraps around the screen too, without losing
+a life when it crosses an edge.
 
 
 ========================================================

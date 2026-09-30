@@ -97,22 +97,19 @@ void sprite_play_physics(sprite_t sprite)
   sprite->rc_screen_xy.y = (int)sprite->y;
 
   /* infinite window */
-  /* Les autres sprites réapparaissent de l'autre côté ; pas le vaisseau. */
-  if (sprite->type != SHIP) {
-    if (sprite->rc_screen_xy.x < 0) {
-      sprite->rc_screen_xy.x += SCREEN_WIDTH;
-      sprite->x = (float)sprite->rc_screen_xy.x;
-    } else if (sprite->rc_screen_xy.x >= SCREEN_WIDTH) {
-      sprite->rc_screen_xy.x -= SCREEN_WIDTH;
-      sprite->x = (float)sprite->rc_screen_xy.x;
-    }
-    if (sprite->rc_screen_xy.y < 0) {
-      sprite->rc_screen_xy.y += SCREEN_HEIGHT;
-      sprite->y = (float)sprite->rc_screen_xy.y;
-    } else if (sprite->rc_screen_xy.y >= SCREEN_HEIGHT) {
-      sprite->rc_screen_xy.y -= SCREEN_HEIGHT;
-      sprite->y = (float)sprite->rc_screen_xy.y;
-    }
+  if (sprite->rc_screen_xy.x < 0) {
+    sprite->rc_screen_xy.x += SCREEN_WIDTH;
+    sprite->x = (float)sprite->rc_screen_xy.x;
+  } else if (sprite->rc_screen_xy.x >= SCREEN_WIDTH) {
+    sprite->rc_screen_xy.x -= SCREEN_WIDTH;
+    sprite->x = (float)sprite->rc_screen_xy.x;
+  }
+  if (sprite->rc_screen_xy.y < 0) {
+    sprite->rc_screen_xy.y += SCREEN_HEIGHT;
+    sprite->y = (float)sprite->rc_screen_xy.y;
+  } else if (sprite->rc_screen_xy.y >= SCREEN_HEIGHT) {
+    sprite->rc_screen_xy.y -= SCREEN_HEIGHT;
+    sprite->y = (float)sprite->rc_screen_xy.y;
   }
 
   /* stop the boost */

@@ -651,36 +651,6 @@ int main(int argc, char* argv[]) {
     /* play & draw the spaceship sprite */
     sprite_play_physics(sprite_ship);
     SDL_BlitSurface(sprite_ship->sprite, &sprite_ship->rc_anim_xy, screen, &sprite_ship->rc_screen_xy);
-    
-    if (sprite_ship->x <= 0 || //x pour le bord gauche
-    sprite_ship->x + sprite_ship->size >= SCREEN_WIDTH ||  //x+ longueur de l'écran= bord du droit
-    sprite_ship->y <= 0 ||  //y pour le bord haut
-    sprite_ship->y + sprite_ship->size >= SCREEN_HEIGHT) {  //y+ longueur de l'écran= bord du bas
-
-  draw_explosion(sprite_ship->x + sprite_ship->size / 2,
-                 sprite_ship->y + sprite_ship->size / 2);
-
-  sprite_ship->x = sprite_ship->rc_screen_xy.x = 304;
-  sprite_ship->y = sprite_ship->rc_screen_xy.y = 224;
-  sprite_ship->vx = 0.;
-  sprite_ship->vy = 0.;
-
-  if (!list_is_empty(l_sprite_life_counter)) {
-    sprite_t dead_sprite = list_pop_sprite(&l_sprite_life_counter);
-    if (dead_sprite)
-      sprite_free(dead_sprite);
-  } else {
-    printf(" ============ Game Over ============= \n");
-    printf("Score: you reached level %d with %d points\n", level, score);
-    fflush(stdout);
-    if (!score_saved) {
-      sauvegarder_score(pseudo, score);
-      score_saved = true;
-    }
-    lost_game = true;
-    gameover = true;
-  }
-}
     // draw comets & nyancats
     draw_sprites(&l_sprite_comet);
     // draw bullets
