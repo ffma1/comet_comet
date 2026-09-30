@@ -1,0 +1,12 @@
+# Build outputs
+*.o
+cometbuster
+cometbuster.exe
+
+# Local scores and logs (may contain player names)
+scores.txt
+stderr.txt
+stdout.txt
+
+# Optional local music; do not commit copyrighted audio
+music/
