@@ -11,10 +11,10 @@ Nous avons donc réparti le travail :
 
 Maram :
 - Gestion de la vitesse du vaisseau : j'ai travaillé sur le déplacement du vaisseau en mettant à jour sa position à chaque frame selon une vitesse donnée. Cela permet d'obtenir un mouvement fluide et continu.
-- Délimitation des bordures du jeu : j'ai implémenté des conditions pour bloquer le vaisseau lorsqu'il touche les bords de l'écran afin qu'il ne sorte pas de la fenêtre.
 - Mise en place du GameOver : j'ai ajouté une vérification des vies du joueur et un état de fin de partie lorsque celles-ci tombent à zéro.
 - Affichage du niveau : j'ai ajouté un système pour afficher le niveau actuel et le faire évoluer selon la progression du joueur.
 - Musique de fond : j'ai chargé et lancé une musique en boucle pour améliorer l'ambiance du jeu.
+- Ajout des options de pause avec P et restart avec R.
 
 Victoria :
 - Ajout des fonctions dans le linkedlist.c
@@ -35,20 +35,6 @@ ship_y += velocity_y * delta_time;
 Cette méthode est utile car elle dépend du temps écoulé, ce qui rend le déplacement plus stable et plus lisible. 
 Le but était d'obtenir un contrôle précis du vaisseau tout en gardant une fluidité de jeu correcte.
 
-
-## Délimitation des bordures du jeu
-
-Pour les bordures, j'ai mis en place une vérification à chaque frame pour empêcher le vaisseau de sortir de l'écran. 
-Le principe est de vérifier si la position du vaisseau dépasse les limites de la fenêtre et, si c'est le cas, de la ramener à la limite correspondante.
-
-```c
-if (ship_x < 0) ship_x = 0;
-if (ship_x > SCREEN_WIDTH - SHIP_WIDTH) ship_x = SCREEN_WIDTH - SHIP_WIDTH;
-if (ship_y < 0) ship_y = 0;
-if (ship_y > SCREEN_HEIGHT - SHIP_HEIGHT) ship_y = SCREEN_HEIGHT - SHIP_HEIGHT;
-```
-
-Cette logique est essentielle pour la jouabilité : le vaisseau doit rester visible et contrôlable à tout moment, sans pouvoir s'échapper de l'écran.
 
 
 ## Mise en place du GameOver
@@ -130,6 +116,8 @@ Mix_FreeMusic(background_music);
 
 Cette étape améliore l'immersion du joueur et donne une ambiance plus agréable au jeu.
 
+## PAUSE ET RESTART
+Pour améliorer l'expérience du joueur, on ajoute l'option pour arrêter ou pour rejouer .
 
 ## Apprentissages et défis
 
